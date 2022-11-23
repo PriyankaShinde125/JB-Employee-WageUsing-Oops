@@ -1,16 +1,14 @@
 public class EmployeeWageComputer {
     public static void main(String[] args) {
+        int totalWage = 0;
         System.out.println("Welcome to Employee Wage Computer");
 
         Employee empObj = new Employee();
-        int attendance = empObj.isPresent();
-
-        if (attendance > Employee.ABSENT) {
+        for (int i = 0; i < Employee.MONTHLY_WORKING_DAYS; i++) {
+            int attendance = empObj.isPresent();
             int dailyWage = empObj.getDailyWage(attendance);
-            System.out.println("Daily Wage = " + dailyWage);
-        } else {
-            System.out.println("Employee is Absent");
-            System.out.println("Daily Wage = 0");
+            totalWage = totalWage + dailyWage;
         }
+        System.out.println("Total wage = " + totalWage);
     }
 }

@@ -7,6 +7,17 @@ public class Employee {
     public static final int WAGE_PER_HOUR = 20;
     public static final int FULL_DAY_HOURS = 8;
     public static final int PART_TIME_HOURS = 4;
+    public static final int MONTHLY_WORKING_DAYS = 20;
+
+    private int monthlyWage;
+
+    public int getMonthlyWage() {
+        return monthlyWage;
+    }
+
+    public void setMonthlyWage(int monthlyWage) {
+        this.monthlyWage = monthlyWage;
+    }
 
     public int isPresent() {
         int attendance = (int) Math.floor(Math.random() * 3);
@@ -21,7 +32,10 @@ public class Employee {
     public int getDailyWage(int attendance) {
         if (attendance == FULL_TIME_PRESENT)
             return WAGE_PER_HOUR * FULL_DAY_HOURS;
-        else
+        else if (attendance==PART_TIME_PRESENT)
             return WAGE_PER_HOUR * PART_TIME_HOURS;
+        else
+            return 0;
     }
+
 }
